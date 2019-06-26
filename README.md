@@ -35,6 +35,8 @@ kubectl create namespace prometheus
 helm install stable/prometheus \
     --name prometheus \
     --namespace prometheus \
+    --set alertmanager.persistentVolume.enabled=true \
+    --set server.persistentVolume.enabled=true \
     --set alertmanager.persistentVolume.storageClass="gp2" \
     --set server.persistentVolume.storageClass="gp2"
 ```
@@ -67,6 +69,7 @@ kubectl create namespace grafana
 helm install stable/grafana \
     --name grafana \
     --namespace grafana \
+    --set persistence.enabled=true \
     --set persistence.storageClassName="gp2" \
     --set adminPassword="MyPassAlwaysSecure" \
     --set datasources."datasources\.yaml".apiVersion=1 \
@@ -85,6 +88,7 @@ helm install stable/grafana \
 helm install stable/grafana \
     --name grafana \
     --namespace grafana \
+    --set persistence.enabled=true \
     --set persistence.storageClassName="gp2" \
     --set adminPassword="XBLEKSGraf" \
     --set datasources."datasources\.yaml".apiVersion=1 \
