@@ -9,6 +9,7 @@ helm init --service-account tiller --upgrade
 *prometheus and grafana in eks (macos will not work for array [0] use ubuntu helm) ::*
 
 [link 1](https://eksworkshop.com/monitoring/cleanup/)
+
 [link 2](https://docs.aws.amazon.com/eks/latest/userguide/prometheus.html)
 
 
@@ -52,6 +53,7 @@ kubectl port-forward -n prometheus deploy/prometheus-server 8080:9090
 ```
 
 [check 1](http://127.0.0.1:8080/)
+
 [check 2](http://127.0.0.1:8080/targets)
 
 
@@ -90,7 +92,7 @@ helm install stable/grafana \
     --namespace grafana \
     --set persistence.enabled=true \
     --set persistence.storageClassName="gp2" \
-    --set adminPassword="XBLEKSGraf" \
+    --set adminPassword="MyPassAlwaysSecure" \
     --set datasources."datasources\.yaml".apiVersion=1 \
     --set datasources."datasources\.yaml".datasources[0].name=Prometheus \
     --set datasources."datasources\.yaml".datasources[0].type=prometheus \
