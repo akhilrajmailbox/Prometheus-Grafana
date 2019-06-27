@@ -150,6 +150,11 @@ This will show monitoring dashboard for all cluster nodes
 For creating dashboard to monitor all pods, repeat same process as above and enter 3146 for dashboard id
 ```
 
+*few dashboard id for kubernetes monitoring
+3131
+3146
+8588*
+
 
 # Delete Prometheus and grafana
 
