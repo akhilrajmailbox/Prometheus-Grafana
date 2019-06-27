@@ -1,4 +1,4 @@
-:car: :cloud:
+:car: :cloud: :cloud: :cloud: *Faster.....!*
 # creating admin privileges for the kube-system namespace
 ```
 kubectl create serviceaccount --namespace kube-system tiller
