@@ -1,4 +1,17 @@
 :car: :cloud: :cloud: :cloud: *Faster.....!*
+
+
+# Use Rancher if you need....!
+
+```
+docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
+```
+
+access the ui >> do the basic configuration, credentials, secondary user with limited permission for managing  and configure grafana
+
+
+
+
 # creating admin privileges for the kube-system namespace
 ```
 kubectl create serviceaccount --namespace kube-system tiller
