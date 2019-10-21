@@ -169,6 +169,8 @@ For creating dashboard to monitor all pods, repeat same process as above and ent
 3131
 3146
 8588
+1860
+1621
 ```
 
 
