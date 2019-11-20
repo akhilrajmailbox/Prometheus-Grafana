@@ -173,6 +173,50 @@ For creating dashboard to monitor all pods, repeat same process as above and ent
 1621
 ```
 
+## Enable the alert
+
+After you deploy the grafana with helm, do the following steps to configure the Email Alerting. The grafana configuration is mounted to a configmap called "grafana" as a file "grafana.ini".
+
+* you can edit it by the following command and update it with the "smtp" configuration.
+
+```
+kubectl -n grafana edit configmap grafana
+```
+
+* update the following field with your details
+
+```
+  grafana.ini: |
+    [smtp]
+    enabled = true
+    host = smtp.gmail.com:465
+    user = yourmail@gmail.com
+    password = <<YouSecrets>>
+    cert_file =
+    key_file =
+    skip_verify = true
+    from_address = noreply@gmail.com
+    from_name = Grafana Admin
+    ....
+    ....
+    ....
+    ....
+    ....
+```
+
+* once you edit and save the configmap, then you have to redeploy the grafana, the simple way is just delete the pod.
+
+```
+kubectl -n grafana delete pods grafana-34fe34f3gv3-34f3w
+```
+
+* Go to grafana dashboard > Alerting > Notification Channel > Add Channel > test the email configuration, if you are getting some error then please check the logs for grafana pods.
+
+**Note : Don't forget to configure [allow less secure apps](https://support.google.com/accounts/answer/6010255)**
+
+[reference video](https://www.youtube.com/watch?v=j8CVsUEH1V4)
+
+
 
 # Delete Prometheus and grafana
 
