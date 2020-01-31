@@ -191,6 +191,8 @@ kubectl get secret --namespace grafana grafana -o jsonpath="{.data.admin-passwor
 1621
 ```
 
+**Note** : you can configure custom dashboard by importing the `json` file from [Custom-Dashboard](#https://github.com/akhilrajmailbox/Prometheus-Grafana/tree/master/Custom-Dashboard)
+
 ## Enable the alert:
 
 After you deploy the grafana with helm, do the following steps to configure the Email Alerting. The grafana configuration is mounted to a configmap called "grafana" as a file "grafana.ini".
