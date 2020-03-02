@@ -89,6 +89,18 @@ kubectl port-forward -n prometheus deploy/prometheus-server 8080:9090
 kubectl create namespace grafana
 ```
 
+
+### Install and configure grafana on `grafana` namespace
+
+**NOTE:** If you are configuring grafana on another kubernetes cluster (A dedicated cluster for monitoting the entire development),then you have to configure helm for this new k8s cluster as well, update `grafana-values.yaml` according to your conifguration and also update `securepassword` with your sensitive admin password and also update the `service.--` parts with your cloud provider configuration, this example showing the axure loadbalancer configuration
+
+```
+helm install grafana stable/grafana --namespace grafana -f Kubernetes/grafana-values.yaml
+kubectl --namespace grafana get services
+```
+
+**want more custom configuration ?**
+
 ### without ssl configuration:
 
 *Configuring grafana without ssl configuration*
